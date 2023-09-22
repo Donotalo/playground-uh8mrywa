@@ -1,13 +1,15 @@
 # Pre-requisites
 
-The pre-requisites to understand this tutorial are listed below:
+This tutorial will be using several software packages. How to use these packages are outside of the scope of this tutorial. Nevertheless, the pre-requisites to understand this tutorial are listed below:
 
-- 
+- How to compile code, preferrebly in C++
+- CMake software build system
+- Linux
+- Shell scripting, preferrebly in Bash
+- Docker
 
-# Prologue
+# Problem Statement
 
-The purpose of this tutorial is to show how to run U-Boot and Linux in QEMU and to list necessary resources all in one place. Because the code will be running on emulated machine, there is no need for real hardware. The chosen architecture is `RISC-V`.
+There is a source code repository (https://bitbucket.org/donotalo/starter/). Compile the source code in a Docker container. Extract the output of the compilation in the host system (Linux).
 
-This tutorial is inspired by and heavily followed the contents of this amazing talk: [Embedded Linux from scratch in RISC-V](https://mirror.cyberbits.eu/fosdem/2021/D.embedded/linux_from_scratch_on_risc_v.webm).
-
-A fairly simple way is illustrated in this tutorial to run U-Boot and Linux kernel in QEMU. Advanced users may try different options when configuring/building various stuff throughout the tutorial.
+There is a build script (`build.sh`) in the repository. Calling this script will compile the code. The build directory, where the output will be located, can be found in the build script.
