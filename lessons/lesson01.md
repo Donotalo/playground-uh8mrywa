@@ -2,10 +2,11 @@
 
 This tutorial will be using several software packages. How to use these packages are outside of the scope of this tutorial. Nevertheless, the pre-requisites to understand this tutorial are listed below:
 
-- How to compile code, in C++ source code
+- How to compile code, preferrebly in [C++](https://isocpp.org/)
 - [CMake](https://cmake.org/) software build system
 - Linux
 - Shell scripting, preferrebly in [Bash](https://www.gnu.org/software/bash/)
+  - Bash documentation [link](https://www.gnu.org/software/bash/manual/bash.html)
 - Docker
 
 # Problem Statement
