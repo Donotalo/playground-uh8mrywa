@@ -10,7 +10,7 @@ This tutorial will be using several software packages. How to use these packages
 
 # Problem Statement
 
-There is a source code repository (https://bitbucket.org/donotalo/starter/). Compile the source code in a Docker container. Extract the output of the compilation in the host system.
+There is a [source code repository](https://bitbucket.org/donotalo/starter/). Compile the source code in a Docker container. Extract the output of the compilation in the host system.
 
 There is a build script (`build.sh`) in the repository. Calling this script will compile the code. The build directory, where the output will be located, can be found in the build script.
 
