@@ -51,19 +51,8 @@ Save this file as `Dockerfile`.
 
 # Building a Docker Image
 
-Given the Dockerfile, a Docker image can be built using the following commands:
-```bash
-name=default-name
-tag=default-tag
-docker build \
-    --file Dockerfile \
-    --metadata-file docker-build.log \
-    --progress auto \
-    --tag "${name}:${tag}" \
-    .
-```
+Let's have a convenient script to help with various docker commands. Write a file called `docker.sh` with the following code:
 
-Wrap it in a function and save the following in a file called `docker.sh`:
 ```bash
 #! /usr/bin/bash
 
@@ -90,7 +79,7 @@ build()
 ${FUNCTION} $2 $3
 ```
 
-A Docker image can be build by invoking the following command:
+A Docker image can be built by invoking the following command:
 ```bash
 ./docker.sh build <name> <tag>
 ```
