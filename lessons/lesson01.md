@@ -51,8 +51,10 @@ Save this file as `Dockerfile`.
 
 # Building a Docker Image
 
-Given the Dockerfile, a Docker image can be built using the following command:
+Given the Dockerfile, a Docker image can be built using the following commands:
 ```bash
+name=default-name
+tag=default-tag
 docker build \
     --file Dockerfile \
     --metadata-file docker-build.log \
