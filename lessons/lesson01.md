@@ -85,14 +85,17 @@ A Docker image can be built by invoking the following command:
 ```
 Replace `<name>` & `<tag>` with your desired name and tag for the image. Once built, it can be listed by `docker images` command.
 
-# Running the Docker Image
+# Running the Docker Image in a Container
 
+We'll run the image in a Docker container using `docker run` command. The container will be assigned a name so that it can be referred later. The path to the build script will be passed as the command to `docker run`. This will override the `CMD` command in the `Dockerfile` and the script will be executed.
 ```bash
 docker run \
     --name ${container_name} \
-    ${name}:${tag} \
-    /src/starter/build.sh
+    ${image_name}:${image_tag} \
+    <path to build script in the image>
 ```
+
+Once the script execution is completed, the container will be stopped.
 
 # Extracting Data from Stopped Docker Container
 
