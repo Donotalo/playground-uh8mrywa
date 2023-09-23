@@ -73,7 +73,7 @@ build()
 {
   name="${1:-${DEFAULT_NAME}}"
   tag="${2:-${DEFAULT_TAG}}"
-  echo "===== Building ${name}:${tag} ====="
+  echo "===== Building Docker image ${name}:${tag} ====="
 
   docker build \
     --file Dockerfile \
@@ -84,6 +84,5 @@ build()
 }
 
 ${FUNCTION} $2 $3
-
 ```
 
