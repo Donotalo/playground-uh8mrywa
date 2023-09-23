@@ -97,7 +97,7 @@ docker run \
 # Extracting Data from Stopped Docker Container
 
 ```bash
-docker cp ${container_name}:/src/starter/build ./${OUTPUT_DIR}/
+docker cp ${container_name}:/src/starter/build/bin/ ./${OUTPUT_DIR}/
 ```
 
 # Export Docker Container's Filesystem to a tar Archive
