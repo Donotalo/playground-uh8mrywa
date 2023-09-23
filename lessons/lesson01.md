@@ -24,7 +24,7 @@ The code in this tutorial was run on Debian (Linux) with [Docker CLI](https://do
 Let's start with the Dockerfile. It will define a Docker image based on which a Docker container will run.
 
 ```Dockerfile
-FROM debian:bookworm
+FROM debian:12.1
 
 # Install necessary software packages
 RUN apt update
