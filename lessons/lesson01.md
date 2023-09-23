@@ -31,6 +31,7 @@ RUN apt update
 RUN apt install -y \
   cmake \
   gcc \
+  g++ \
   git
 
 # Define working directory
@@ -42,6 +43,7 @@ RUN git clone https://donotalo@bitbucket.org/donotalo/starter.git
 # Mark the build script as executable
 RUN chmod +x starter/build.sh
 
+# Start bash shell for interactive session
 CMD ["/usr/bin/bash"]
 ```
 
