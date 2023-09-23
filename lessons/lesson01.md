@@ -101,3 +101,9 @@ docker run \
     ${name}:${tag} \
     /src/starter/build.sh
 ```
+
+# Extracting Data from Stopped Docker Container
+
+```bash
+docker cp ${container_name}:/src/starter/build ./${OUTPUT_DIR}/
+```
