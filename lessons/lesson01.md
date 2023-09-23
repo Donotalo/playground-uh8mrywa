@@ -112,10 +112,6 @@ A new function `extract()` is added to the `docker.sh` script that will run a Do
 
 ```bash
 #! /usr/bin/bash
-#
-# Usage:
-#   - Build a docker image with optional <name> and <tag>
-#     - ./docker.sh build [<name> [<tag>]]
 
 DEFAULT_NAME=default-name
 DEFAULT_TAG=default-tag
@@ -123,6 +119,24 @@ DEFAULT_CONTAINER=default-container
 OUTPUT_DIR=out
 
 FUNCTION=$1
+
+# Print how to use this script
+help()
+{
+  echo "Usage:"
+  echo "  + Print usage"
+  echo "    - ./docker.sh help"
+  echo "  + Build a docker image with optional <name> and <tag>:"
+  echo "    - ./docker.sh build [<name> [<tag>]]"
+  echo "      where:"
+  echo "        <name> = repository of the image"
+  echo "        <tag> = tag of the image"
+  echo "  + Extract content after running an image:"
+  echo "    - ./docker.sh extract [<image-repository> [<image-tag>]]"
+  echo "      where:"
+  echo "        <image-repository> = repository of the image"
+  echo "        <image-tag> = tag of the image"
+}
 
 # Build docker image
 build()
@@ -142,19 +156,24 @@ build()
 # Run the docker image in a container and extract output
 extract()
 {
-  container_name="${1:-${DEFAULT_CONTAINER}}"
-  image_name="${2:-${DEFAULT_NAME}}"
-  image_tag="${3:-${DEFAULT_TAG}}"
-  image=${image_name}:${image_tag}
+  name="${1:-${DEFAULT_NAME}}"
+  tag="${2:-${DEFAULT_TAG}}"
+
+  image=${name}:${tag}
+  container_name="cont-$(date +%s)"
+
+  # The variables below should be updated to suit a project's need
+  build_script_path=/src/starter/build.sh
+  path_to_copy=/src/starter/build/bin
+
   echo "===== Running ${image} with name ${container_name} ====="
 
   # Run the container
   # Pass the command to execute, this will override CMD in the Dockerfile
   docker run \
     --name ${container_name} \
-    ${image_name}:${image_tag} \
-    /src/starter/build.sh
-
+    ${image} \
+    ${build_script_path}
   if [ $? -ne 0 ]; then
     echo "docker run fails for ${image}"
     exit 1;
@@ -164,10 +183,27 @@ extract()
   mkdir ${OUTPUT_DIR}
 
   # Copy files from the container filesystem to host
-  docker cp ${container_name}:/src/starter/build/bin ./${OUTPUT_DIR}/
+  docker cp ${container_name}:${path_to_copy} ${OUTPUT_DIR}
+ 
+  if [ $? -ne 0 ]; then
+    echo "docker cp fails for ${container_name}"
+    exit 1;
+  fi
+  
+  # Data copied, delete the container
+  docker container rm -fv ${container_name}
+  if [ $? -ne 0 ]; then
+    echo "docker container rm fails for ${container_name}"
+    exit 1;
+  fi
 }
 
-${FUNCTION} $2 $3 $4
+if [[ $# == 0 ]]; then
+  help
+  exit 0
+fi
+
+${FUNCTION} $2 $3
 ```
 
 # Export Docker Container's Filesystem to a tar Archive
