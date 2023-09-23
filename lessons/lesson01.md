@@ -98,7 +98,6 @@ Replace `<name>` & `<tag>` with your desired name and tag for the image. Once bu
 
 ```bash
 docker run \
-    --detach \
     --name ${container_name} \
     ${name}:${tag} \
     /src/starter/build.sh
