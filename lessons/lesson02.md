@@ -1,6 +1,4 @@
-# Extracting Data from a Stopped Docker Container
-
-## Running the Docker Image in a Container
+# Running the Docker Image in a Container
 
 We'll run the image in a Docker container using [`docker run`](https://docs.docker.com/engine/reference/run/) command. The container will be assigned a name (`${container_name}`) so that it can be referred later. The path to the build script (`${cmd}`) will be passed as the command to `docker run`. This will override the `CMD` command in the `Dockerfile` and the script will be executed.
 ```bash
@@ -12,14 +10,14 @@ docker run \
 
 Once the script execution is completed, the container will be stopped. All modifications to the filesystem will be retained in the container.
 
-## Copy Data from Stopped Docker Container
+# Copy Data from Stopped Docker Container
 
 Any file from the Docker container's filesystem can be copied to the host system using [`docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) command. We need to pass the container name (`${container_name}`), path to the file (`${path_to_copy}`), and destination location in the host system (`${output_dir}`) where to copy the content.
 ```bash
 docker cp ${container_name}:${path_to_copy} ${output_dir}
 ```
 
-## Updated Docker Script
+# Updated Docker Script
 
 A new function `extract()` is added to the `docker.sh` script that will run a Docker image in a container and extract desired file(s) out of it.
 
