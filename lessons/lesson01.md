@@ -85,7 +85,7 @@ A Docker image can be built by invoking the following command:
 ```bash
 ./docker.sh build <name> <tag>
 ```
-Replace `<name>` & `<tag>` with your desired name and tag for the image. Once built, it can be listed by `docker images` command.
+Replace `<name>` & `<tag>` with your desired name and tag for the image. Once built, it can be listed by [`docker images`](https://docs.docker.com/engine/reference/commandline/images/) command.
 
 # Extracting Data from a Stopped Docker Container
 
