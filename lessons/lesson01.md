@@ -174,6 +174,13 @@ extract()
 ${FUNCTION} $2 $3
 ```
 
+Once the image is ready, it can be run in a container and necessary files can be copied to host system using the following command:
+```bash
+./docker.sh extract <repo> <tag>
+```
+
+The `extract()` function will delete the container and all filesystems associated with it if all docker command execution is successful.
+
 # Export Docker Container's Filesystem to a tar Archive
 
 ```bash
