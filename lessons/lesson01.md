@@ -95,8 +95,8 @@ We'll run the image in a Docker container using [`docker run`](https://docs.dock
 ```bash
 docker run \
     --name ${container_name} \
-    ${image_name}:${image_tag} \
-    <path to build script in the image>
+    ${image} \
+    ${build_script_path}
 ```
 
 Once the script execution is completed, the container will be stopped. All modifications to the filesystem will be retained in the container.
@@ -105,7 +105,7 @@ Once the script execution is completed, the container will be stopped. All modif
 
 Any file from the Docker container's filesystem can be copied to the host system using `docker cp` command. We need to pass the container name (`${container_name}`), path to the file, and destination location (`${OUTPUT_DIR}`) where to copy the content.
 ```bash
-docker cp ${container_name}:<path to file> ${OUTPUT_DIR}
+docker cp ${container_name}:${path_to_copy} ${OUTPUT_DIR}
 ```
 
 ## Updated Docker Script
