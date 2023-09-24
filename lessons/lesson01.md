@@ -68,7 +68,6 @@ build()
   repo="${1:-${DEFAULT_REPO}}"
   tag="${2:-${DEFAULT_TAG}}"
   image=${repo}:${tag}
-  echo "[   INFO ] Building Docker image ${image}"
 
   docker build \
     --file Dockerfile \
