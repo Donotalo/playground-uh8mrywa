@@ -115,53 +115,24 @@ A new function `extract()` is added to the `docker.sh` script that will run a Do
 ```bash
 #! /usr/bin/bash
 
-DEFAULT_NAME=default-name
+DEFAULT_REPO=default-repo
 DEFAULT_TAG=default-tag
-DEFAULT_CONTAINER=default-container
 OUTPUT_DIR=out
 
 FUNCTION=$1
 
-# Print how to use this script
-help()
-{
-  echo "Usage:"
-  echo "  + Print usage"
-  echo "    - ./docker.sh help"
-  echo "  + Build a docker image with optional <name> and <tag>:"
-  echo "    - ./docker.sh build [<name> [<tag>]]"
-  echo "      where:"
-  echo "        <name> = repository of the image"
-  echo "        <tag> = tag of the image"
-  echo "  + Extract content after running an image:"
-  echo "    - ./docker.sh extract [<image-repository> [<image-tag>]]"
-  echo "      where:"
-  echo "        <image-repository> = repository of the image"
-  echo "        <image-tag> = tag of the image"
-}
-
 # Build docker image
 build()
 {
-  name="${1:-${DEFAULT_NAME}}"
-  tag="${2:-${DEFAULT_TAG}}"
-  echo "===== Building Docker image ${name}:${tag} ====="
-
-  docker build \
-    --file Dockerfile \
-    --metadata-file docker-build.log \
-    --progress auto \
-    --tag "${name}:${tag}" \
-    .
+# ...
 }
 
 # Run the docker image in a container and extract output
 extract()
 {
-  name="${1:-${DEFAULT_NAME}}"
+  repo="${1:-${DEFAULT_REPO}}"
   tag="${2:-${DEFAULT_TAG}}"
-
-  image=${name}:${tag}
+  image=${repo}:${tag}
   container_name="cont-$(date +%s)"
 
   # The variables below should be updated to suit a project's need
@@ -191,7 +162,7 @@ extract()
     echo "docker cp fails for ${container_name}"
     exit 1;
   fi
-  
+
   # Data copied, delete the container
   docker container rm -fv ${container_name}
   if [ $? -ne 0 ]; then
@@ -199,11 +170,6 @@ extract()
     exit 1;
   fi
 }
-
-if [[ $# == 0 ]]; then
-  help
-  exit 0
-fi
 
 ${FUNCTION} $2 $3
 ```
