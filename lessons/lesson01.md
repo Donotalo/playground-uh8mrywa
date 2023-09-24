@@ -128,8 +128,6 @@ extract()
   path_to_copy=/src/starter/build/bin
   output_dir=./out
 
-  echo "[   INFO ] Running ${image} as container named ${container_name}"
-
   # Run the container
   # Pass the command to execute, this will override CMD in the Dockerfile
   docker run \
@@ -139,7 +137,7 @@ extract()
 
   rm -rf ${output_dir}
   mkdir -p ${output_dir}
-
+  
   # Copy files from the container filesystem to host
   docker cp ${container_name}:${path_to_copy} ${output_dir}
 
