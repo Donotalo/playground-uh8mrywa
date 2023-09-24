@@ -68,7 +68,7 @@ build()
   repo="${1:-${DEFAULT_REPO}}"
   tag="${2:-${DEFAULT_TAG}}"
   image=${repo}:${tag}
-  echo "===== Building Docker image ${image} ====="
+  echo "[   INFO ] Building Docker image ${image}"
 
   docker build \
     --file Dockerfile \
@@ -136,19 +136,19 @@ extract()
   container_name="cont-$(date +%s)"
 
   # The variables below should be updated to suit a project's need
-  build_script_path=/src/starter/build.sh
+  cmd=/src/starter/build.sh
   path_to_copy=/src/starter/build/bin
 
-  echo "===== Running ${image} with name ${container_name} ====="
+  echo "[   INFO ] Running ${image} as container named ${container_name}"
 
   # Run the container
   # Pass the command to execute, this will override CMD in the Dockerfile
   docker run \
     --name ${container_name} \
     ${image} \
-    ${build_script_path}
+    ${cmd}
   if [ $? -ne 0 ]; then
-    echo "docker run fails for ${image}"
+    echo "[  ERROR ] docker run fails for ${image}"
     exit 1;
   fi
 
@@ -157,16 +157,15 @@ extract()
 
   # Copy files from the container filesystem to host
   docker cp ${container_name}:${path_to_copy} ${OUTPUT_DIR}
- 
   if [ $? -ne 0 ]; then
-    echo "docker cp fails for ${container_name}"
+    echo "[  ERROR ] docker cp fails for ${container_name}"
     exit 1;
   fi
 
   # Data copied, delete the container
   docker container rm -fv ${container_name}
   if [ $? -ne 0 ]; then
-    echo "docker container rm fails for ${container_name}"
+    echo "[  ERROR ] docker container rm fails for ${container_name}"
     exit 1;
   fi
 }
