@@ -67,13 +67,14 @@ build()
 {
   name="${1:-${DEFAULT_NAME}}"
   tag="${2:-${DEFAULT_TAG}}"
-  echo "===== Building Docker image ${name}:${tag} ====="
+  image=${name}:${tag}
+  echo "===== Building Docker image ${image} ====="
 
   docker build \
     --file Dockerfile \
     --metadata-file docker-build.log \
     --progress auto \
-    --tag "${name}:${tag}" \
+    --tag "${image}" \
     .
 }
 
