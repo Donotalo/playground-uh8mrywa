@@ -1,4 +1,8 @@
-title: Simple Bash Template
+title: How to Extract Files from Docker Container
 plan:
-- title: Bash Snippet
-  statement: statement.md
+- title: Problem Statement
+  statement: /lessons/lesson01.md
+- title: Extracting Data from a Stopped Docker Container
+  statement: /lessons/lesson02.md
+- title: Extra
+  statement: /lessons/lesson03.md
