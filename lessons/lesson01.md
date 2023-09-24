@@ -91,7 +91,7 @@ Replace `<name>` & `<tag>` with your desired name and tag for the image. Once bu
 
 ## Running the Docker Image in a Container
 
-We'll run the image in a Docker container using [`docker run`](https://docs.docker.com/engine/reference/run/) command. The container will be assigned a name (`${container_name}`) so that it can be referred later. The path to the build script will be passed as the command to `docker run`. This will override the `CMD` command in the `Dockerfile` and the script will be executed.
+We'll run the image in a Docker container using [`docker run`](https://docs.docker.com/engine/reference/run/) command. The container will be assigned a name (`${container_name}`) so that it can be referred later. The path to the build script (`${build_script_path}`) will be passed as the command to `docker run`. This will override the `CMD` command in the `Dockerfile` and the script will be executed.
 ```bash
 docker run \
     --name ${container_name} \
