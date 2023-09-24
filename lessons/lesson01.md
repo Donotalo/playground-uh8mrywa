@@ -65,9 +65,9 @@ FUNCTION=$1
 # Build docker image
 build()
 {
-  name="${1:-${DEFAULT_NAME}}"
+  repo="${1:-${DEFAULT_REPO}}"
   tag="${2:-${DEFAULT_TAG}}"
-  image=${name}:${tag}
+  image=${repo}:${tag}
   echo "===== Building Docker image ${image} ====="
 
   docker build \
