@@ -24,12 +24,10 @@ The code in this tutorial was run on Debian (Linux) with [Docker CLI](https://do
 Let's start with the [Dockerfile](https://docs.docker.com/engine/reference/builder/). It will define a Docker image that will be used to run a container.
 
 ```Dockerfile
-# Start with Debian 12.1
 FROM debian:12.1
 
 # Install necessary software packages
-RUN apt update
-RUN apt install -y \
+RUN apt update && apt install -y \
   cmake \
   gcc \
   g++ \
@@ -45,7 +43,7 @@ RUN git clone https://donotalo@bitbucket.org/donotalo/starter.git
 RUN chmod +x starter/build.sh
 
 # Start bash shell for interactive session
-CMD ["/usr/bin/bash"]
+CMD ["/bin/bash"]
 ```
 
 Save this file as `Dockerfile`.
