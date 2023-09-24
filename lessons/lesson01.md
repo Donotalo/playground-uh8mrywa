@@ -26,12 +26,14 @@ Let's start with the [Dockerfile](https://docs.docker.com/engine/reference/build
 ```Dockerfile
 FROM debian:12.1
 
-# Install necessary software packages
+# Install necessary software packages and clean up
 RUN apt update && apt install -y \
   cmake \
   gcc \
   g++ \
-  git
+  git && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 # Define working directory
 WORKDIR /src
@@ -42,7 +44,7 @@ RUN git clone https://donotalo@bitbucket.org/donotalo/starter.git
 # Mark the build script as executable
 RUN chmod +x starter/build.sh
 
-# Start bash shell for interactive session
+# Start bash shell for an interactive session
 CMD ["/bin/bash"]
 ```
 
