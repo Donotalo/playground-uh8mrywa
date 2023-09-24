@@ -102,9 +102,9 @@ Once the script execution is completed, the container will be stopped. All modif
 
 ## Copy Data from Stopped Docker Container
 
-Any file from the Docker container's filesystem can be copied to the host system using [`docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) command. We need to pass the container name (`${container_name}`), path to the file (`${path_to_copy}`), and destination location (`${OUTPUT_DIR}`) where to copy the content.
+Any file from the Docker container's filesystem can be copied to the host system using [`docker cp`](https://docs.docker.com/engine/reference/commandline/cp/) command. We need to pass the container name (`${container_name}`), path to the file (`${path_to_copy}`), and destination location in the host system (`${output_dir}`) where to copy the content.
 ```bash
-docker cp ${container_name}:${path_to_copy} ${OUTPUT_DIR}
+docker cp ${container_name}:${path_to_copy} ${output_dir}
 ```
 
 ## Updated Docker Script
