@@ -4,5 +4,5 @@ plan:
   statement: /lessons/lesson01.md
 - title: Extracting Data from a Stopped Docker Container
   statement: /lessons/lesson02.md
-- title: Extra
+- title: Supplementary
   statement: /lessons/lesson03.md
