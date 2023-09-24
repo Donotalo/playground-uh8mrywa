@@ -2,8 +2,8 @@
 
 This tutorial will be using several software packages. How to use these packages are outside of the scope of this tutorial. Nevertheless, the pre-requisites to understand this tutorial are listed below:
 
-- How to compile code, preferrebly in [C++](https://isocpp.org/)
-- [CMake](https://cmake.org/) software build system
+- Proficiency in compiling code, preferably in [C++](https://isocpp.org/)
+- Knowledge of the [CMake](https://cmake.org/) software build system
 - Linux
 - Shell scripting, preferrebly in [Bash](https://www.gnu.org/software/bash/)
   - Bash documentation [link](https://www.gnu.org/software/bash/manual/bash.html)
@@ -17,7 +17,7 @@ The source code is in C++. The repository is setup to use CMake to compile the c
 
 # Host system
 
-The code in this tutorial was run on Debian (Linux) with [Docker CLI](https://docs.docker.com/engine/install/) installed in it.
+The code in this tutorial was run on Debian Linux with [Docker CLI](https://docs.docker.com/engine/install/) installed in it.
 
 # The Dockerfile
 
@@ -55,7 +55,7 @@ Save this file as `Dockerfile`.
 Let's have a convenient script to help with various docker commands. Write a file called `docker.sh` with the following code:
 
 ```bash
-#! /usr/bin/bash
+#!/usr/bin/bash
 
 DEFAULT_REPO=default-repo
 DEFAULT_TAG=default-tag
