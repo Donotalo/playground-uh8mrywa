@@ -57,7 +57,7 @@ Let's have a convenient script to help with various docker commands. Write a fil
 ```bash
 #! /usr/bin/bash
 
-DEFAULT_NAME=default-name
+DEFAULT_REPO=default-repo
 DEFAULT_TAG=default-tag
 
 FUNCTION=$1
