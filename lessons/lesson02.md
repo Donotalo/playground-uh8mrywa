@@ -63,9 +63,3 @@ Once the image is ready, it can be run in a container and necessary files can be
 ```
 
 The `extract()` function will delete the container and all filesystems associated with it if all docker command execution is successful.
-
-# Export Docker Container's Filesystem to a tar Archive
-
-```bash
-docker export --output ${filename} ${container_name}
-```
