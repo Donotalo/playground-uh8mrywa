@@ -115,18 +115,6 @@ A new function `extract()` is added to the `docker.sh` script that will run a Do
 ```bash
 #! /usr/bin/bash
 
-DEFAULT_REPO=default-repo
-DEFAULT_TAG=default-tag
-OUTPUT_DIR=out
-
-FUNCTION=$1
-
-# Build docker image
-build()
-{
-# ...
-}
-
 # Run the docker image in a container and extract output
 extract()
 {
@@ -138,6 +126,7 @@ extract()
   # The variables below should be updated to suit a project's need
   cmd=/src/starter/build.sh
   path_to_copy=/src/starter/build/bin
+  output_dir=./out
 
   echo "[   INFO ] Running ${image} as container named ${container_name}"
 
@@ -147,30 +136,16 @@ extract()
     --name ${container_name} \
     ${image} \
     ${cmd}
-  if [ $? -ne 0 ]; then
-    echo "[  ERROR ] docker run fails for ${image}"
-    exit 1;
-  fi
 
-  rm -rf ${OUTPUT_DIR}
-  mkdir ${OUTPUT_DIR}
+  rm -rf ${output_dir}
+  mkdir -p ${output_dir}
 
   # Copy files from the container filesystem to host
-  docker cp ${container_name}:${path_to_copy} ${OUTPUT_DIR}
-  if [ $? -ne 0 ]; then
-    echo "[  ERROR ] docker cp fails for ${container_name}"
-    exit 1;
-  fi
+  docker cp ${container_name}:${path_to_copy} ${output_dir}
 
   # Data copied, delete the container
   docker container rm -fv ${container_name}
-  if [ $? -ne 0 ]; then
-    echo "[  ERROR ] docker container rm fails for ${container_name}"
-    exit 1;
-  fi
 }
-
-${FUNCTION} $2 $3
 ```
 
 Once the image is ready, it can be run in a container and necessary files can be copied to host system using the following command:
