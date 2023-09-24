@@ -21,7 +21,7 @@ The code in this tutorial was run on Debian (Linux) with [Docker CLI](https://do
 
 # The Dockerfile
 
-Let's start with the Dockerfile. It will define a Docker image based on which a Docker container will run.
+Let's start with the [Dockerfile](https://docs.docker.com/engine/reference/builder/). It will define a Docker image that will be used to run a container.
 
 ```Dockerfile
 FROM debian:12.1
