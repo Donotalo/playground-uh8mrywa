@@ -51,7 +51,7 @@ extract()
   docker cp ${container_name}:${path_to_copy} ${output_dir}
 
   # Data copied, delete the container
-  docker container rm -fv ${container_name}
+  docker container rm --force --volumes ${container_name}
 }
 ```
 
