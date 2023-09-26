@@ -1,6 +1,6 @@
-# Pre-requisites
+# Prerequisites
 
-This tutorial will be using several software packages. How to use these packages are outside of the scope of this tutorial. Nevertheless, the pre-requisites to understand this tutorial are listed below:
+This tutorial will be using several software packages. How to use these packages are outside of the scope of this tutorial. Nevertheless, the prerequisites to understand this tutorial are listed below:
 
 - Proficiency in compiling code, preferably in [C++](https://isocpp.org/)
 - Knowledge of the [CMake](https://cmake.org/) software build system
