@@ -5,7 +5,7 @@ This tutorial will be using several software packages. How to use these packages
 - Proficiency in compiling code, preferably in [C++](https://isocpp.org/)
 - Knowledge of the [CMake](https://cmake.org/) software build system
 - Linux
-- Shell scripting, preferrebly in [Bash](https://www.gnu.org/software/bash/)
+- Shell scripting, preferably in [Bash](https://www.gnu.org/software/bash/)
   - Bash documentation [link](https://www.gnu.org/software/bash/manual/bash.html)
 - Docker
 
