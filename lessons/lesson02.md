@@ -22,7 +22,7 @@ docker cp ${container_name}:${path_to_copy} ${output_dir}
 A new function `extract()` is added to the `docker.sh` script that will run a Docker image in a container and extract desired file(s) out of it.
 
 ```bash
-#! /usr/bin/bash
+#!/usr/bin/bash
 
 # Run the docker image in a container and extract output
 extract()
