@@ -13,7 +13,7 @@ This tutorial will be using several software packages. How to use these packages
 
 There is a [source code repository](https://bitbucket.org/donotalo/starter/). Compile the source code in a Docker container. Extract the output of the compilation in the host system. Hence, the host system will only require Docker to be installed to compile the code and get output.
 
-The source code is in C++. The repository is setup to use CMake to compile the code. There is a build script (`build.sh`) in the repository written for Bash. Calling this script will compile the code. The build directory, where the output will be located, can be found in the build script.
+The source code is in C++. The repository is set up to use CMake to compile the code. There is a build script (`build.sh`) in the repository written for Bash. Calling this script will compile the code. The build directory, where the output will be located, can be found in the build script.
 
 # Host system
 
