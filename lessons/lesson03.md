@@ -6,5 +6,5 @@ Let's see how a private repository can be downloaded inside Docker image and bui
 
 A private repository typically can be downloaded in local machine by `git clone` command using SSH protocol. This is handy because it won't ask for username and password. For the purpose of this article, the private repository [codingame](https://bitbucket.org/donotalo/codingame/src/master/) will be used. Naturally, because it's a private repository, it can't be accessed by the audience of this tutorial. It is suggested that you use your own private repository for the sake of this articale.
 ```
-git clone git@bitbucket.org:donotalo/codingame.git
+RUN -mount=type-ssh git clone git@bitbucket.org:donotalo/codingame.git
 ```
