@@ -17,4 +17,4 @@ Change the `git clone` statement in the docker file with the following:
 ```
 RUN --mount=type=ssh git clone git@bitbucket.org:donotalo/codingame.git
 ```
-- 
+- `--mount=type=ssh`: Allow local SSH keys to be available in the Docker build container.
