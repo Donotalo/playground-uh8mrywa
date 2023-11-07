@@ -15,6 +15,6 @@ To download git repository over SSH, SSH keys need to be generated, they need to
 Change the `git clone` statement in the docker file with the following:
 
 ```
-RUN -mount=type=ssh git clone git@bitbucket.org:donotalo/codingame.git
+RUN --mount=type=ssh git clone git@bitbucket.org:donotalo/codingame.git
 ```
-
+- 
