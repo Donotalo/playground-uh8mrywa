@@ -4,7 +4,7 @@ Let's see how a private repository can be downloaded inside Docker image and bui
 
 ## `git clone` over SSH
 
-This tutorial will focus on downloading code repository in Docker container by `git clone` command over [SSH protocol](https://www.ssh.com/academy/ssh/protocol). This is handy because this process is not only secure, but also it won't prompt for username and password. For the purpose of this article, the private repository [codingame](https://bitbucket.org/donotalo/codingame/src/master/) will be used. Naturally, because it's a private repository, it can't be accessed by the audience of this tutorial. It is suggested to use a private repository that the reader has access to complete this tutorial.
+This tutorial will focus on downloading code repository in Docker container by `git clone` command over [SSH protocol](https://www.ssh.com/academy/ssh/protocol). This is handy because this process is not only secure, but also it won't prompt for username and password. For the purpose of this article, the private repository [settings](https://bitbucket.org/donotalo/settings/src/master/) will be used. Naturally, because it's a private repository, it can't be accessed by the audience of this tutorial. It is suggested to use a private repository that the reader has access to complete this tutorial.
 
 ### Pre-requisite
 
@@ -15,6 +15,6 @@ To download git repository over SSH, SSH keys need to be generated, they need to
 Change the `git clone` statement in the docker file with the following:
 
 ```
-RUN --mount=type=ssh git clone git@bitbucket.org:donotalo/codingame.git
+RUN --mount=type=ssh git clone git@bitbucket.org:donotalo/settings.git
 ```
 - `--mount=type=ssh`: Allow local SSH keys to be available in the Docker build container.
