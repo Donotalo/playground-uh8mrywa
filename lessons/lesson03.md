@@ -8,7 +8,7 @@ This tutorial will focus on downloading code repository in Docker container by `
 
 ### Pre-requisite
 
-To download git repository over SSH, SSH keys need to be generated, they need to be added by SSH agent and the public key needs to be added in git remote repository. How these can be achieved are Operating System and git repository host dependent. The audience are advised to learn on their own.
+To download git repository over SSH, SSH keys need to be generated, they need to be added by SSH agent and the public key needs to be added in git remote repository. How these can be achieved are Operating System and git repository host dependent and thus out of the scope of this tutorial. The audience are advised to learn on their own.
 
 ### Dockerfile
 
